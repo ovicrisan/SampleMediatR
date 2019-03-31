@@ -26,8 +26,6 @@ namespace SampleMediatR.Areas.Identity.MediatR
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public IHttpContextAccessor HttpContextAccessor { get; }
-
         public async Task<IEnumerable<AuthenticationScheme>> Handle(LoginGet request, CancellationToken cancellationToken)
         {
             await _httpContextAccessor.HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
